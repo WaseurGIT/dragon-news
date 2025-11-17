@@ -1,8 +1,30 @@
+import { useState } from "react";
 import { CiBookmark, CiShare2, CiStar } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ article }) => {
-  const { title, rating, total_view, author, thumbnail_url, details } = article;
+  const { id, title, rating, total_view, author, thumbnail_url, details } =
+    article;
+
+  const [isExpanded, setIsExpanded] = useState(false);
+  const limit = 150;
+  const shortText = details.slice(0, limit);
+
+  const handleShare = (article) => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: article.title,
+          text: article.details.slice(0, 120) + "...",
+          url: window.location.origin + `/news/${article.id}`,
+        })
+        .then(() => console.log("Shared successfully"))
+        .catch((error) => console.log("Error sharing:", error));
+    } else {
+      alert("Sharing not supported on this device. Try copying the link.");
+    }
+  };
 
   return (
     <div className="flex items-center justify-center mt-5">
@@ -27,7 +49,35 @@ const NewsCard = ({ article }) => {
 
           <div className="flex items-center gap-3">
             <CiBookmark className="w-5 h-5" />
-            <CiShare2 className="w-5 h-5" />
+            <div className="relative group">
+              <CiShare2 className="w-5 h-5 cursor-pointer" onClick={handleShare}/>
+
+              <div className="absolute hidden group-hover:block bg-white shadow-md px-2 rounded ">
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.origin}/news/${id}`}
+                  target="_blank"
+                  className="block text-sm"
+                >
+                  Facebook
+                </a>
+
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${window.location.origin}/news/${id}&text=${title}`}
+                  target="_blank"
+                  className="block text-sm py-2"
+                >
+                  Twitter
+                </a>
+
+                <a
+                  href={`https://wa.me/?text=${window.location.origin}/news/${id}`}
+                  target="_blank"
+                  className="block text-sm"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <figure>
@@ -35,7 +85,13 @@ const NewsCard = ({ article }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <p>{details}</p>
+          <p>{isExpanded ? details : shortText + "..."}</p>
+          <Link
+            to={`/news/${id}`}
+            className="text-orange-600 font-semibold mt-2 cursor-pointer"
+          >
+            Read More
+          </Link>
         </div>
         <hr className="text-gray-400 mx-5" />
         <div className="flex items-center justify-between m-5">

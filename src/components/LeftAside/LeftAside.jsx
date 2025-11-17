@@ -13,10 +13,11 @@ const LeftAside = () => {
   return (
     <div>
       <h1 className="text-lg font-semibold ml-5">All Category</h1>
-      <div className="bg-base-100">
+      <div className="bg-base-100 mt-5">
         {categories.map((category) => (
           <div key={category.id}>
             <NavLink
+            
               className={
                 "btn bg-base-200 w-full mt-2 border-0 active:bg-base-300"
               }

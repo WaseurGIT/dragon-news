@@ -9,6 +9,8 @@ import Register from "./Authentication/Register/Register";
 import Home from "./components/Home/Home";
 import AuthLayout from "./Authentication/AuthLayout/AuthLayout";
 import AuthProvider from "./context/AuthProvider";
+import NewsDetails from "./components/NewsDetails/NewsDetails";
+import About from "./components/About/About";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,20 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "news/:id",
+        element: <NewsDetails></NewsDetails>,
+        loader: async ({ params }) => {
+          const res = await fetch("/news.json");
+          const data = await res.json();
+          const article = data.find((item) => item.id === params.id);
+          return article;
+        },
       },
     ],
   },

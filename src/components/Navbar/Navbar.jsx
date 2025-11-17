@@ -7,9 +7,9 @@ import { IoIosLogOut } from "react-icons/io";
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
 
-  const handleLogOut = () =>{
-    logOutUser()
-  }
+  const handleLogOut = () => {
+    logOutUser();
+  };
 
   const links = (
     <>
@@ -17,7 +17,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <a>About</a>
+        <Link to="/about">About</Link>
       </li>
       <li>
         <a>Career</a>
@@ -66,7 +66,10 @@ const Navbar = () => {
                 className="w-10 h-10 mr-3 rounded-full"
                 alt="user"
               />
-              <IoIosLogOut onClick={handleLogOut} className="w-10 h-10 text-gray-500 cursor-pointer" />
+              <IoIosLogOut
+                onClick={handleLogOut}
+                className="w-10 h-10 text-gray-500 cursor-pointer"
+              />
             </>
           ) : (
             <Link

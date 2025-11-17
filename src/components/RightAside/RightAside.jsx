@@ -21,7 +21,7 @@ const RightAside = () => {
 
   return (
     <div className="">
-      <h1 className="text-lg font-semibold ml-30 mb-2">Login With</h1>
+      <h1 className="text-lg font-semibold flex justify-center mb-5">Login With</h1>
       {/* login types */}
       <div>
         <div
