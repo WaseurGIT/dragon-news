@@ -1,6 +1,8 @@
 import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { GrTwitter } from "react-icons/gr";
+import fb from "../../assets/fb.png";
+import twitter from "../../assets/twitter.png";
+import insta from "../../assets/instagram.png";
 
 import swimming from "../../assets/swimming.png";
 import class_pic from "../../assets/class.png";
@@ -21,7 +23,9 @@ const RightAside = () => {
 
   return (
     <div className="">
-      <h1 className="text-lg font-semibold flex justify-center mb-5">Login With</h1>
+      <h1 className="text-lg font-semibold flex justify-center mb-5">
+        Login With
+      </h1>
       {/* login types */}
       <div>
         <div
@@ -41,16 +45,16 @@ const RightAside = () => {
       <div>
         <h1 className="text-xl font-semibold my-4 ml-30">Find Us On</h1>
         <div className="*:border rounded *:border-gray-400">
-          <div className="flex items-center px-3 center gap-2 w-full py-3 bg-base-300">
-            <FaFacebook className="text-blue-500 w-5 h-5" />
-            <h1 className="text-blue-500 font-semibold">Facebook</h1>
+          <div className="flex items-center px-5 center gap-2 w-full py-3 bg-base-300">
+            <img src={fb} className="text-blue-500" />
+            <h1 className="text-blue-500 font-semibold ml-2">Facebook</h1>
           </div>
-          <div className="flex items-center px-3 gap-2 w-full py-3 bg-base-300">
-            <GrTwitter className="text-blue-500 w-5 h-5" />
+          <div className="flex items-center px-5 gap-2 w-full py-3 bg-base-300">
+            <img src={twitter} className="text-blue-500" />
             <h1 className="font-semibold">Twitter</h1>
           </div>
-          <div className="flex items-center px-3 gap-2 w-full py-3 bg-base-300">
-            <FaInstagram size={22} className="text-pink-500" />
+          <div className="flex items-center px-5 gap-2 w-full py-3 bg-base-300">
+            <img src={insta} className="text-pink-500" />
             <h1 className="font-semibold">Instagram</h1>
           </div>
         </div>

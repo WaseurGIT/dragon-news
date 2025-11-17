@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CiBookmark, CiShare2, CiStar } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import star from "../../assets/star.png"
 
 const NewsCard = ({ article }) => {
   const { id, title, rating, total_view, author, thumbnail_url, details } =
@@ -96,14 +97,7 @@ const NewsCard = ({ article }) => {
         <hr className="text-gray-400 mx-5" />
         <div className="flex items-center justify-between m-5">
           <div className="flex items-center gap-1">
-            <div className="rating">
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-yellow-500"
-                aria-label="1 star"
-              />
-            </div>
+            <img src={star} alt="" />
             <h1>{rating?.number}</h1>
           </div>
           <div className="flex items-center gap-2">

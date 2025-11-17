@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 
+
+
+
 const NewsBar = () => {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
