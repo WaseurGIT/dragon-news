@@ -80,6 +80,7 @@ const NewsCard = ({ article }) => {
               </div>
             </div>
           </div>
+
         </div>
         <figure>
           <img src={thumbnail_url} alt="Shoes" />
