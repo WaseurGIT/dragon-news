@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <main className="grid grid-cols-[1fr_2fr_1fr] mx-20">
         {/* to fixed the left side className="sticky top-0 h-screen" */}
-        <aside>
+        <aside className="sticky top-0 h-screen overflow-auto">
           <LeftAside />
         </aside>
 
@@ -15,8 +15,8 @@ const Home = () => {
           <NewsBar />
         </aside>
 
-        <aside>
-          {/* to fixed the right side className="sticky top-0 h-screen" */}
+        {/* to fixed the right side className="sticky top-0 h-screen" */}
+        <aside className="sticky top-0 h-screen overflow-auto">
           <RightAside />
         </aside>
       </main>

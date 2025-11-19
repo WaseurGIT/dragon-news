@@ -18,7 +18,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div>
+    <div className="fixed top-0  w-full  z-50 bg-white">
       <img src={logo} className="w-[500px] h-10 mx-auto mt-5" alt="" />
       <h1 className="flex items-center justify-center">
         Journalism Without Fear or Favour
