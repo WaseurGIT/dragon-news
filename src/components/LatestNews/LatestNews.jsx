@@ -2,7 +2,7 @@ import React from "react";
 
 const LatestNews = () => {
   return (
-    <div>
+    <div className="mt-7">
       <div className="w-[1200px] flex items-center justify-center mx-auto">
         <h1 className="text-white bg-red-600 px-3 py-2 font-semibold mr-2">
           Latest

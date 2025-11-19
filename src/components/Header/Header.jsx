@@ -24,7 +24,6 @@ const Header = () => {
         Journalism Without Fear or Favour
       </h1>
       <h1 className="flex items-center justify-center">{today}</h1>
-
       <LatestNews></LatestNews>
     </div>
   );
